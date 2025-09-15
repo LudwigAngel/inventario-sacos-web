@@ -36,7 +36,8 @@ import {
 } from '@/types'
 
 // Flag para habilitar/deshabilitar modo mock
-const USE_MOCK_API = process.env.NODE_ENV === 'development'
+// Usar mock API en desarrollo O cuando no hay URL de API configurada
+const USE_MOCK_API = process.env.NODE_ENV === 'development' || !process.env.NEXT_PUBLIC_API_URL
 
 // Storage simulado en memoria
 let currentUser: User | null = null

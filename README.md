@@ -122,10 +122,16 @@ La aplicación está optimizada para:
 ## 🚀 Despliegue
 
 ### Vercel (Recomendado)
-```bash
-npm run build
-vercel --prod
-```
+**Despliegue con un clic**: 
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/tu-usuario/jaguar-inventory)
+
+**O manualmente**:
+1. Conecta tu repositorio en [vercel.com](https://vercel.com)
+2. **No configures variables de entorno** (usará Mock API automáticamente)
+3. Haz clic en "Deploy"
+
+Ver [VERCEL_DEPLOYMENT.md](./VERCEL_DEPLOYMENT.md) para más detalles.
 
 ### Docker
 ```bash
