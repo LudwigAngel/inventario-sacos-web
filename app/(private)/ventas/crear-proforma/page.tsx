@@ -328,7 +328,7 @@ export default function CrearProformaPage() {
                                                                             {saco?.tipo.replace('_', ' ')} - {saco?.temporada}
                                                                         </h4>
                                                                         <p className="text-sm text-coffee-300">
-                                                                            ID: {saco?.id} | Incluye: {saco?.prendas_incluidas?.join(', ')}
+                                                                            ID: {saco?.id} | Incluye: {saco?.tallas_incluidas?.join(', ')}
                                                                         </p>
                                                                     </div>
 

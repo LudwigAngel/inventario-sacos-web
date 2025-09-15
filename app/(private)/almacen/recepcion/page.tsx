@@ -14,13 +14,16 @@ import { MoneyInput } from '@/components/ui/MoneyInput'
 import { AuthGuard } from '@/lib/auth-guard'
 import { sacosAPI, pedidosAPI } from '@/lib/api'
 import { formatDate, formatCurrency } from '@/lib/utils'
-import { UserRole, type Saco, type Pedido, type TableColumn, SacoTipo, Temporada, PedidoEstado } from '@/types'
+import { UserRole, type Saco, type TableColumn, SacoTipo, Temporada, Categoria, PedidoEstado } from '@/types'
 import { toast } from 'react-hot-toast'
 
 const createSacoSchema = z.object({
   pedido_id: z.number().optional(),
   tipo: z.nativeEnum(SacoTipo),
   temporada: z.nativeEnum(Temporada),
+  categoria: z.nativeEnum(Categoria),
+  tallas_incluidas: z.array(z.string()).min(1, 'Debe incluir al menos una talla'),
+  descripcion_contenido: z.string().min(1, 'La descripción es requerida'),
   precio_base: z.number().min(0.01, 'El precio debe ser mayor a 0'),
   observaciones: z.string().optional()
 })

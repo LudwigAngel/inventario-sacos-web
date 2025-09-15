@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useMemo } from 'react'
-import { Table, TextInput, Select, Button, Pagination } from 'flowbite-react'
+import { Table, Pagination } from 'flowbite-react'
 import { HiSearch, HiSortAscending, HiSortDescending } from 'react-icons/hi'
 import type { TableColumn, FilterOption } from '@/types'
 
@@ -20,7 +20,7 @@ interface DataTableProps<T> {
   emptyMessage?: string
 }
 
-export function DataTable<T extends Record<string, unknown>>({
+export function DataTable<T>({
   data,
   columns,
   searchable = true,
@@ -44,7 +44,7 @@ export function DataTable<T extends Record<string, unknown>>({
     // Aplicar búsqueda
     if (searchTerm) {
       result = result.filter(item =>
-        Object.values(item).some(value =>
+        Object.values(item as Record<string, unknown>).some(value =>
           String(value).toLowerCase().includes(searchTerm.toLowerCase())
         )
       )
@@ -53,20 +53,20 @@ export function DataTable<T extends Record<string, unknown>>({
     // Aplicar filtros
     Object.entries(filterValues).forEach(([key, value]) => {
       if (value) {
-        result = result.filter(item => String(item[key]) === value)
+        result = result.filter(item => String((item as Record<string, unknown>)[key]) === value)
       }
     })
 
     // Aplicar ordenamiento
     if (sortConfig) {
       result.sort((a, b) => {
-        const aValue = a[sortConfig.key]
-        const bValue = b[sortConfig.key]
+        const aValue = (a as Record<string, unknown>)[sortConfig.key as string]
+        const bValue = (b as Record<string, unknown>)[sortConfig.key as string]
         
-        if (aValue < bValue) {
+        if (String(aValue) < String(bValue)) {
           return sortConfig.direction === 'asc' ? -1 : 1
         }
-        if (aValue > bValue) {
+        if (String(aValue) > String(bValue)) {
           return sortConfig.direction === 'asc' ? 1 : -1
         }
         return 0
@@ -172,7 +172,7 @@ export function DataTable<T extends Record<string, unknown>>({
                     <Table.Cell key={String(column.key)} className="jaguar-table-cell">
                       {column.render ? 
                         column.render(item) : 
-                        String(item[column.key] || '')
+                        String((item as Record<string, unknown>)[column.key as string] || '')
                       }
                     </Table.Cell>
                   ))}

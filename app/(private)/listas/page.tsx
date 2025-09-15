@@ -374,7 +374,7 @@ export default function ListasPage() {
                             💼 Para ventas con descuentos:
                           </p>
                           <p className="text-xs text-coffee-600 dark:text-coffee-400 mt-1">
-                            Usa "Crear Proforma Manual" en el menú de Ventas para aplicar descuentos personalizados
+                            Usa &quot;Crear Proforma Manual&quot; en el menú de Ventas para aplicar descuentos personalizados
                           </p>
                         </div>
                       </div>

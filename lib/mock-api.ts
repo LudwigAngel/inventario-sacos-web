@@ -30,11 +30,9 @@ import {
   CreateProformaRequest,
   CreatePagoRequest,
   PaginatedResponse,
+  PedidoEstado,
   SacoEstado,
-  ProformaEstado,
-  Categoria,
-  SacoTipo,
-  Temporada
+  ProformaEstado
 } from '@/types'
 
 // Flag para habilitar/deshabilitar modo mock
@@ -42,11 +40,11 @@ const USE_MOCK_API = process.env.NODE_ENV === 'development'
 
 // Storage simulado en memoria
 let currentUser: User | null = null
-let sacosStorage = [...mockSacos]
-let pedidosStorage = [...mockPedidos]
-let listasStorage = [...mockListas]
-let proformasStorage = [...mockProformas]
-let pagosStorage = [...mockPagos]
+const sacosStorage = [...mockSacos]
+const pedidosStorage = [...mockPedidos]
+const listasStorage = [...mockListas]
+const proformasStorage = [...mockProformas]
+const pagosStorage = [...mockPagos]
 
 // Auth API Mock
 export const mockAuthAPI = {
@@ -122,7 +120,7 @@ export const mockPedidosAPI = {
       ...data,
       proveedor,
       fecha_pedido: new Date().toISOString(),
-      estado: 'CREADO' as any,
+      estado: PedidoEstado.CREADO,
       total_sacos: 0,
       created_at: new Date().toISOString()
     }
@@ -137,7 +135,7 @@ export const mockPedidosAPI = {
     
     pedidosStorage[pedidoIndex] = {
       ...pedidosStorage[pedidoIndex],
-      estado: estado as any
+      estado: estado as PedidoEstado
     }
     return pedidosStorage[pedidoIndex]
   }
@@ -350,6 +348,7 @@ export const mockProformasAPI = {
       cliente_email: data.cliente_email,
       estado: ProformaEstado.EMITIDA,
       descuento_global: data.descuento_global || 0,
+      total_original: total / (1 - (data.descuento_global || 0) / 100),
       total,
       codigo_seguimiento: codigoSeguimiento,
       created_at: new Date().toISOString(),

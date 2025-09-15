@@ -399,12 +399,12 @@ export default function TiendaPublicaPage() {
                               📦 Incluye:
                             </p>
                             <div className="flex flex-wrap gap-1">
-                              {saco.prendas_incluidas?.map((prenda, idx) => (
+                              {saco.tallas_incluidas?.map((talla, idx) => (
                                 <span
                                   key={idx}
                                   className="inline-flex items-center px-2 py-1 rounded text-xs bg-jaguar-100 text-coffee-700 dark:bg-coffee-700 dark:text-jaguar-200"
                                 >
-                                  {prenda}
+                                  {talla}
                                 </span>
                               ))}
                             </div>
@@ -553,7 +553,7 @@ export default function TiendaPublicaPage() {
                             {saco.tipo.replace('_', ' ')} - {saco.temporada}
                           </h4>
                           <p className="text-sm text-gray-600">
-                            Incluye: {saco.prendas_incluidas?.join(', ')}
+                            Incluye: {saco.descripcion_contenido}
                           </p>
                           <p className="text-sm text-gray-500">
                             Tallas: {saco.tallas_incluidas?.join(', ')}
