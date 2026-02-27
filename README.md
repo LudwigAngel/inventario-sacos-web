@@ -75,6 +75,15 @@ Sistema de gestión de inventario de sacos con autenticación JWT y roles de usu
 └── public/               # Archivos estáticos
 ```
 <img width="700" height="400" alt="image" src="https://github.com/user-attachments/assets/c42241e6-9587-4a3a-9cc7-b5530ac037c2" />
+<img width="700" height="400" alt="image" src="https://github.com/user-attachments/assets/bb42039e-29be-4983-a2ce-8e82286fcabf" />
+<img width="700" height="400" alt="image" src="https://github.com/user-attachments/assets/1616e55f-c88c-48bf-9c52-2e9165be9e36" />
+<img width="700" height="400" alt="image" src="https://github.com/user-attachments/assets/ac20f033-d51a-42a5-9a25-dc335f2e0c13" />
+<img width="700" height="400" alt="image" src="https://github.com/user-attachments/assets/9edbedb0-805d-4525-ae21-90e4802c0438" />
+<img width="700" height="400" alt="image" src="https://github.com/user-attachments/assets/55e8755e-c45d-411b-8103-9a8243fc6046" />
+
+
+
+
 
 ## 🔧 Scripts Disponibles
 
