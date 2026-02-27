@@ -74,6 +74,7 @@ Sistema de gestión de inventario de sacos con autenticación JWT y roles de usu
 ├── types/                # Definiciones de TypeScript
 └── public/               # Archivos estáticos
 ```
+<img width="700" height="400" alt="image" src="https://github.com/user-attachments/assets/c42241e6-9587-4a3a-9cc7-b5530ac037c2" />
 
 ## 🔧 Scripts Disponibles
 
